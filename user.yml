@@ -4,7 +4,7 @@
   tasks:
     - name: Create user
       user:
-        name: sarcasm1
+        name: "{{ user }}" #variables
         state: absent #present-create_user/absent-deleteUser
       become: true
 
