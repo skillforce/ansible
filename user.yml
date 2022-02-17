@@ -1,6 +1,10 @@
 ---
 - name: user
   hosts : all
+  vars_prompt:
+    - name: user
+      prompt: "Enter user name"
+      private: no #request user value
   tasks:
     - name: Create user
       user:
