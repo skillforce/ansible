@@ -1,0 +1,12 @@
+---
+- name: user
+  hosts : demo
+  tasks:
+    - name: Create user
+      user:
+        name: sarcasm1
+        state: absent #present-create_user/absent-deleteUser
+      become: true
+
+      #ansible-playbook -i hosts.ini user.yml -K  (-K - give opportunities to enter "become_password")
+
