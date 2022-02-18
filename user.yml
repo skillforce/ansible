@@ -1,16 +1,14 @@
 ---
 - name: user
-  hosts : all
-  vars_prompt:
-    - name: user
-      prompt: "Enter user name"
-      private: no #request user value
+  hosts : demo
   tasks:
     - name: Create user
+      vars:
+        user: sarcasm1
       user:
         name: "{{ user }}" #variables
-        state: absent #present-create_user/absent-deleteUser
+        state: present #present-create_user/absent-deleteUser
       become: true
-
+      debugger: always
       #ansible-playbook -i hosts.ini user.yml -K  (-K - give opportunities to enter "become_password")
 
